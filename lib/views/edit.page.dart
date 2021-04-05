@@ -45,8 +45,19 @@ class _AddPageState extends State<EditPage> {
     }
 
     return Scaffold(
+      backgroundColor: Color.fromARGB(124, 226, 206, 165),
       appBar: AppBar(
-        title: Text("Editar Item da lista"),
+        leading: BackButton(
+          color: Colors.white,
+        ),
+        title: Text(
+          "Editar Item da lista",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color.fromARGB(1000, 199, 159, 78),
+        shadowColor: Color.fromARGB(1000, 255, 255, 230),
         actions: [
           FlatButton(
             child: Text(
@@ -71,6 +82,8 @@ class _AddPageState extends State<EditPage> {
                 initialValue: item.nome,
                 decoration: InputDecoration(
                   labelText: "Nome do item",
+                  // filled: true,
+                  // fillColor: Colors.white,
                   border: OutlineInputBorder(),
                 ),
                 onSaved: (value) => _item.nome = value,
@@ -84,6 +97,8 @@ class _AddPageState extends State<EditPage> {
                 initialValue: item.qtdItem.toString(),
                 decoration: InputDecoration(
                   labelText: "Quantidade do item",
+                  // filled: true,
+                  // fillColor: Colors.white,
                   border: OutlineInputBorder(),
                 ),
                 onSaved: (value) => _item.qtdItem = int.parse(value),
@@ -103,6 +118,7 @@ class _AddPageState extends State<EditPage> {
                 title: const Text('Sim'),
                 value: EmFalta.Sim,
                 groupValue: _value,
+                activeColor: Color.fromARGB(1000, 199, 159, 78),
                 onChanged: (EmFalta value) {
                   setState(() {
                     _value = EmFalta.Sim;
@@ -113,6 +129,7 @@ class _AddPageState extends State<EditPage> {
                 title: const Text('Não'),
                 value: EmFalta.Nao,
                 groupValue: _value,
+                activeColor: Color.fromARGB(1000, 199, 159, 78),
                 onChanged: (EmFalta value) {
                   setState(() {
                     _value = EmFalta.Nao;

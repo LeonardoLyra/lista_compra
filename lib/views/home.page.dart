@@ -49,19 +49,24 @@ class _HomePageState extends State<HomePage> {
           setState(() => this.itens = repository.read());
         }
       },
-      child: Icon(Icons.add),
+      child: Icon(
+        Icons.add,
+        color: Colors.white,
+      ),
+      backgroundColor: Color.fromARGB(1000, 199, 159, 78),
     );
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(1000, 255, 255, 230),
+      backgroundColor: Color.fromARGB(124, 226, 206, 165),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(1000, 255, 255, 230),
+        backgroundColor: Color.fromARGB(1000, 199, 159, 78),
+        shadowColor: Color.fromARGB(124, 226, 206, 165),
         title: Text(
           "Lista de Compras",
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
           ),
         ),
         centerTitle: true,
@@ -69,7 +74,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: Icon(
               Icons.edit,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () => setState(() => canEdit = !canEdit),
           ),
@@ -81,6 +86,9 @@ class _HomePageState extends State<HomePage> {
         itemCount: repository.read().length,
         itemBuilder: (_, indice) {
           var item = itens[indice];
+          if (itens.isEmpty) {
+            Text("Lista Vazia, clique no mais para iniciar as Compras!");
+          } else {}
           return Dismissible(
             key: Key(item.id),
             background: Container(
@@ -104,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                       : TextDecoration.none,
                 ),
               ),
-              tileColor: Colors.white,
+              activeColor: Color.fromARGB(1000, 199, 159, 78),
               value: item.marcado,
               title: Row(
                 children: [
@@ -112,6 +120,7 @@ class _HomePageState extends State<HomePage> {
                       ? IconButton(
                           icon: Icon(
                             Icons.edit,
+                            color: Color.fromARGB(1000, 199, 159, 78),
                             size: 20,
                           ),
                           onPressed: () async {

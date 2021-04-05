@@ -38,8 +38,19 @@ class _AddPageState extends State<AddPage> {
       _item.emFalta = false;
     }
     return Scaffold(
+      backgroundColor: Color.fromARGB(124, 226, 206, 165),
       appBar: AppBar(
-        title: Text("Adicionar Item a lista"),
+        leading: BackButton(
+          color: Colors.white,
+        ),
+        title: Text(
+          "Adicionar Item a lista",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color.fromARGB(1000, 199, 159, 78),
+        shadowColor: Color.fromARGB(1000, 255, 255, 230),
         actions: [
           FlatButton(
             child: Text(
@@ -94,6 +105,7 @@ class _AddPageState extends State<AddPage> {
                 title: const Text('Sim'),
                 value: EmFalta.Sim,
                 groupValue: _value,
+                activeColor: Color.fromARGB(1000, 199, 159, 78),
                 onChanged: (EmFalta value) {
                   setState(() {
                     _value = value;
@@ -104,6 +116,7 @@ class _AddPageState extends State<AddPage> {
                 title: const Text('Não'),
                 value: EmFalta.Nao,
                 groupValue: _value,
+                activeColor: Color.fromARGB(1000, 199, 159, 78),
                 onChanged: (EmFalta value) {
                   setState(() {
                     _value = value;
