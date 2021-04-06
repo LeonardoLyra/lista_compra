@@ -29,11 +29,6 @@ class _AddPageState extends State<EditPage> {
   @override
   Widget build(BuildContext context) {
     Item item = ModalRoute.of(context).settings.arguments;
-    // if (item.emFalta == true) {
-    //   _value = EmFalta.Sim;
-    // } else {
-    //   _value = EmFalta.Nao;
-    // }
 
     if (_value == EmFalta.Sim) {
       _item.emFalta = true;
@@ -79,8 +74,6 @@ class _AddPageState extends State<EditPage> {
                 initialValue: item.nome,
                 decoration: InputDecoration(
                   labelText: "Nome do item",
-                  // filled: true,
-                  // fillColor: Colors.white,
                   border: OutlineInputBorder(),
                 ),
                 onSaved: (value) => _item.nome = value,
@@ -94,8 +87,6 @@ class _AddPageState extends State<EditPage> {
                 initialValue: item.qtdItem.toString(),
                 decoration: InputDecoration(
                   labelText: "Quantidade do item",
-                  // filled: true,
-                  // fillColor: Colors.white,
                   border: OutlineInputBorder(),
                 ),
                 onSaved: (value) => _item.qtdItem = int.parse(value),
