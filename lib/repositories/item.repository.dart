@@ -3,6 +3,7 @@ import 'package:lista_compra/models/item.model.dart';
 class ItemRepository {
   // ignore: deprecated_member_use
   static List<Item> itens = List<Item>();
+  static List<Item> aux = List<Item>();
 
   ItemRepository() {
     if (itens.isEmpty) {
@@ -30,22 +31,35 @@ class ItemRepository {
   }
 
   List<Item> read() {
-    var aux;
-    for (var i = 0; i < (itens.length); i++) {
+    // var aux;
+    // for (var i = 0; i < (itens.length); i++) {
+    //   if (itens[i].marcado == false) {
+    //     if (i == 0) {
+    //       continue;
+    //     } else {
+    //       for (var j = 0; j < i; j++) {
+    //         aux = itens[j];
+    //         itens[j] = itens[i];
+    //         itens[i] = aux;
+    //       }
+    //     }
+    //   }
+    // }
+    //
+    //
+    aux = [];
+
+    for (int i = 0; i < itens.length; i++) {
       if (itens[i].marcado == false) {
-        if (i == 0) {
-          continue;
-        } else {
-          for (var j = 0; j < i; j++) {
-            aux = itens[j];
-            itens[j] = itens[i];
-            itens[i] = aux;
-          }
-        }
+        aux.add(itens[i]);
       }
     }
-
-    return itens;
+    for (int i = 0; i < itens.length; i++) {
+      if (itens[i].marcado == true) {
+        aux.add(itens[i]);
+      }
+    }
+    return aux;
   }
 
   void delete(String id) {
