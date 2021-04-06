@@ -150,6 +150,7 @@ class _HomePageState extends State<HomePage> {
                     item.emFalta = false;
                   }
                 });
+                this.itens = repository.read();
               },
             ),
           );
